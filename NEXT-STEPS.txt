@@ -1,0 +1,4 @@
+-Put pre-requisites in packaging script - pagination and sorting
+-Improove documentation
+-Translate to english
+-Show related itens in delete template
