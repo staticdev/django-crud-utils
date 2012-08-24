@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load generic_templates %}
+{% load i18n %}
+
+{% block title %}{% blocktrans with object.name as objectName %}{{ objectName }} - Detalhes{% endblocktrans %}{% endblock %}
+
+{% block content %}
+<h2>{% blocktrans with object.name as objectName %}{{ objectName }} - Detalhes{% endblocktrans %}</h2>
+<div class="main_table">
+	<div class="cell">
+{% for name, value in object|get_fields %}
+	<p>
+		<label>{% trans name|capitalize %}:</label>
+		<span>{{ value }}</span>
+	</p>
+{% endfor %}
+	</div>
+</div>
+<br />
+{% endblock %}

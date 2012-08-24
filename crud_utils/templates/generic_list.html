@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load generic_templates %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load sorting %}
+
+{% block title %}{{ auto_name_plural }}{% endblock %}
+
+{% block content %}
+<h2>{{ auto_name_plural }}</h2>
+
+{% auto_sort object_list %}
+{% autopaginate object_list 15 %}
+
+{# DEBUG - Trocar para ~"hasPermission" #}
+<div class="action-search">
+	{% if user.is_authenticated %}
+	<a href="adicionar/" class="button">{% trans 'Add' %} {{ auto_name|lower }}</a>
+	{% endif %}
+
+{% if object_list %}
+	{% block search %}
+	<form id="quick-search" method="GET" action="">
+		<fieldset class="search">
+			<label for="qsearch">Search:</label>
+			{{ form.search }}
+			<button class="btn" type="submit" name="submit_search">Buscar</button>
+		</fieldset>
+	</form>
+	{% endblock %}
+</div>
+	<table id="box-table-a">
+		<thead>
+		<tr>
+		{% for field in object_list.0|get_first_fields %}
+			{% sort_link field.verbose_name|capitalize field.name forloop.counter|stringfy %}
+		{% endfor %}
+		{% if user.is_authenticated %}
+			<th scope="col" class="unsortable"><span>Editar</span></th>
+			<th scope="col" class="unsortable"><span>Deletar</span></th>
+		{% else %}
+			<th scope="col" class="unsortable"><span>Visualizar</span></th>
+		{% endif %}
+		</tr>
+		</thead>
+		<tbody>
+		{% for e in object_list %}
+			<tr class="{% cycle odd, %}">
+			{% for value in e|get_first_field_values %}
+				<td scope="col">{{ value|default:"Não disponível" }}</td>
+			{% endfor %}
+			</text>
+			{% if user.is_authenticated %}
+				<td><a href="{{ e.id }}/editar/"><img src="{{ MEDIA_URL }}images/document.gif" alt="{% trans 'Editar' %}" title="{% trans 'Editar' %}" /></a></td>
+				<td><a href="{{ e.id }}/deletar/"><img src="{{ MEDIA_URL }}images/icon_x.png" alt="{% trans 'Deletar' %}" title="{% trans 'Deletar' %}" /></a></td>
+			{% else %}
+			<td><a href="{{ e.get_absolute_url }}"><img src="{{ MEDIA_URL }}images/document.gif" alt="{% trans 'Visualizar' %}" title="{% trans 'Visualizar' %}" /></a></td>
+			{% endif %}
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% paginate %}
+{% else %}
+	</div>
+	<div class="bday-calendar">
+		<br />
+		<div class="bday-daylist">{% trans 'Não há ' %}{{ auto_name_plural|lower }}{% trans ' para serem mostrados.' %}</div>
+		<br />
+	</div>
+{% endif %}
+{% endblock %}
