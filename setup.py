@@ -24,7 +24,11 @@ setup(
     long_description = read_file('README'),
     packages = find_packages(),
     include_package_data = True,
-    install_requires=read_file('requirements.txt'),
+    install_requires=[
+        'Django>=1.3.1',
+        'django-pagination>=1.0.7',
+        '-e git+https://github.com/staticdev/django-sorting#egg=django-sorting'
+    ],
     classifiers = [
         'License :: OSI Approved :: MIT License',
         'Framework :: Django',
