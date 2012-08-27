@@ -27,7 +27,7 @@ setup(
     install_requires=[
         'Django>=1.3.1',
         'django-pagination>=1.0.7',
-        '-e git+https://github.com/staticdev/django-sorting#egg=django-sorting'
+#        '-e git+https://github.com/staticdev/django-sorting#egg=django-sorting'
     ],
     classifiers = [
         'License :: OSI Approved :: MIT License',
