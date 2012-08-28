@@ -24,7 +24,14 @@ setup(
     long_description = read_file('README'),
     packages = find_packages(),
     include_package_data = True,
-    install_requires=read_file('requirements.txt'),
+    dependency_links = [
+        'https://github.com/staticdev/django-sorting/tarball/master#egg=django-sorting',
+    ],
+    install_requires=[
+        'Django>=1.3.1',
+        'django-pagination>=1.0.7',
+        'django-sorting',
+    ],
     classifiers = [
         'License :: OSI Approved :: MIT License',
         'Framework :: Django',
