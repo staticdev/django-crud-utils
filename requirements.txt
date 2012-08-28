@@ -1,4 +1,1 @@
--e git://github.com/bcarneiro/django.git@fc6b9dd913a442497d0468fc81b21c251715d740#egg=Django-dev
-git@44903099006def45b34043df3bddbfc01ac16f8b#egg=django_crud_utils-dev
 django-pagination==1.0.7
--e git+https://github.com/staticdev/django-sorting#egg=django_sort-dev
