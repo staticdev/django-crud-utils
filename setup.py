@@ -25,12 +25,12 @@ setup(
     packages = find_packages(),
     include_package_data = True,
     dependency_links = [
-        'https://github.com/staticdev/django-sorting/tarball/master#egg=django-sort',
+        'https://github.com/staticdev/django-sorting/tarball/master#egg=django-sorting',
     ],
     install_requires=[
         'Django>=1.3.1',
         'django-pagination>=1.0.7',
-        'django-sort',
+#        'django-sort',
     ],
     classifiers = [
         'License :: OSI Approved :: MIT License',
