@@ -30,7 +30,7 @@ class CrudUtilsDeleteView(DeleteView):
 
 	def get_context_data(self, **kwargs):
 		context = super(self.__class__, self).get_context_data(**kwargs)
-		context['deleted_objects'] = get_deleted_objects([context['object']])
+		context['deleted_objects'] = self.get_deleted_objects([context['object']])
 
 		return context
 
