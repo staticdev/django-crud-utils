@@ -11,26 +11,26 @@ class CrudUtilsCreateView(CreateView):
 class CrudUtilsUpdateView(UpdateView):
 	template_name='generic_insert.html'
 
+"""
+
+Returns a nested list of strings suitable for display in the
+template with the ``unordered_list`` filter. Inspired on django.contrib.admin.util function.
+
+"""
+def get_deleted_objects(objs):
+	from django.contrib.admin.util import NestedObjects
+	collector = NestedObjects(using='default') # or specific database
+#	collector = NestedObjects(using=using)
+	collector.collect(objs)
+
+	return collector.nested()
+
 class CrudUtilsDeleteView(DeleteView):
 	template_name='generic_delete.html'
 
-	"""
-
-    Returns a nested list of strings suitable for display in the
-    template with the ``unordered_list`` filter. Inspired on django.contrib.admin.util function.
-
-    """
-	def get_deleted_objects(objs):
-		from django.contrib.admin.util import NestedObjects
-		collector = NestedObjects(using='default') # or specific database
-#		collector = NestedObjects(using=using)
-		collector.collect(objs)
-
-		return collector.nested()
-
 	def get_context_data(self, **kwargs):
 		context = super(self.__class__, self).get_context_data(**kwargs)
-		context['deleted_objects'] = self.get_deleted_objects([context['object']])
+		context['deleted_objects'] = get_deleted_objects([context['object']])
 
 		return context
 
