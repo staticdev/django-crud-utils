@@ -21,30 +21,13 @@ def get_deleted_objects(objs):
 	from django.contrib.admin.util import NestedObjects
 
 	def format_callback(obj):
-		has_admin = obj.__class__ in admin_site._registry
 		opts = obj._meta
 
-		if has_admin:
-			admin_url = reverse('%s:%s_%s_change'
-								% (admin_site.name,
-									opts.app_label,
-									opts.object_name.lower()),
-									None, (quote(obj._get_pk_val()),))
-			p = '%s.%s' % (opts.app_label,
-							opts.get_delete_permission())
-			if not user.has_perm(p):
-				perms_needed.add(opts.verbose_name)
-			# Display a link to the admin page.
-			return mark_safe(u'%s: <a href="%s">%s</a>' %
-								(escape(capfirst(opts.verbose_name)),
-								admin_url,
-								escape(obj)))
-		else:
-			# Don't display link to edit, because it either has no
-			# admin or is edited inline.
-			return u'%s: %s' % (capfirst(opts.verbose_name),
-								force_unicode(obj))
-			
+		# Don't display link to edit, because it either has no
+		# admin or is edited inline.
+		return u'%s: %s' % (capfirst(opts.verbose_name),
+							force_unicode(obj))
+
 	collector = NestedObjects(using='default') # or specific database
 #	collector = NestedObjects(using=using)
 	collector.collect(objs)
