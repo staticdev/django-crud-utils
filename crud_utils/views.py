@@ -1,4 +1,3 @@
-from django.contrib.admin.util import get_deleted_objects
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 
 from crud_utils.forms import SearchForm
