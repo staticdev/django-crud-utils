@@ -1,6 +1,5 @@
 from django.contrib.admin.util import get_deleted_objects
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
-#from django.contrib.auth.decorators import login_required
 
 from crud_utils.forms import SearchForm
 
@@ -16,16 +15,25 @@ class CrudUtilsUpdateView(UpdateView):
 class CrudUtilsDeleteView(DeleteView):
 	template_name='generic_delete.html'
 
-## TO-DO: colocar lista de objetos deletados
-#	def get_context_data(self, **kwargs):
-		# Call the base implementation first to get a context
-#		context = super(self.__class__, self).get_context_data(**kwargs)
+	"""
 
-#		opts = self.model._meta
-		# Populate deleted_objects, a data structure of all related objects that
-		# will also be deleted.
-#		(context['deleted_objects'], context['perms_needed'], context['protected']) = get_deleted_objects(
-#			[obj], opts, request.user, self.admin_site, using)
+    Returns a nested list of strings suitable for display in the
+    template with the ``unordered_list`` filter. Inspired on django.contrib.admin.util function.
+
+    """
+	def get_deleted_objects(objs):
+		from django.contrib.admin.util import NestedObjects
+		collector = NestedObjects(using='default') # or specific database
+#		collector = NestedObjects(using=using)
+		collector.collect(objs)
+
+		return collector.nested()
+
+	def get_context_data(self, **kwargs):
+		context = super(self.__class__, self).get_context_data(**kwargs)
+		context['deleted_objects'] = get_deleted_objects([context['object']])
+
+		return context
 
 class CrudUtilsListView(ListView):
 	template_name='generic_list.html'

@@ -12,8 +12,8 @@
 	</div>
 	<div class="cell">
 		<form method="post" action="">{% csrf_token %}
-			<ul>{{ object|unordered_list }}</ul>
 			<ul><li>{{ object|class_verbose_name }}: "{{ object }}"</li></ul>
+			<ul>{{ deleted_objects|unordered_list }}</ul>
 			<p><input type="submit" class="button" name="confirm_delete" value='{% trans "Yes, I''m sure" %}' /></p>
 		</form>
 	</div>
