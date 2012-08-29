@@ -1,4 +1,4 @@
 -Put pre-requisites in packaging script - pagination and sorting
 -Improove documentation
 -Translate to english
--Show related itens in delete template
+-Make tests for deleted itens list in delete template
