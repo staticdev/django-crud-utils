@@ -1,5 +1,4 @@
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
-
 from crud_utils.forms import SearchForm
 
 class CrudUtilsDetailView(DetailView):
@@ -19,6 +18,7 @@ template with the ``unordered_list`` filter. Inspired on django.contrib.admin.ut
 """
 def get_deleted_objects(objs):
 	from django.contrib.admin.util import NestedObjects
+	from django.utils.text import capfirst
 
 	def format_callback(obj):
 		opts = obj._meta
