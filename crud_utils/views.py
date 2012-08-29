@@ -19,6 +19,7 @@ template with the ``unordered_list`` filter. Inspired on django.contrib.admin.ut
 def get_deleted_objects(objs):
 	from django.contrib.admin.util import NestedObjects
 	from django.utils.text import capfirst
+	from django.utils.encoding import force_unicode
 
 	def format_callback(obj):
 		opts = obj._meta
