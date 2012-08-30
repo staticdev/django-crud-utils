@@ -29,11 +29,13 @@ For correct usage of this app, you need to install the following dependencies:
 *   [django-pagination][]:
 Used for listing the objects of a class.
 [django-pagination]: http://pypi.python.org/pypi/django-pagination
+
     pip install django-pagination
 
 *   [django-sorting][]:
 Used for sorting fields of a list.
 [django-sorting]: https://github.com/staticdev/django-sorting
+
     pip install -e git://github.com/staticdev/django-sorting.git#egg=django-sorting
 
 Final Notes
