@@ -26,12 +26,16 @@ Don't forget to add `crud-utils` to your `INSTALLED_APPS`.
 
 For correct usage of this app, you need to install the following dependencies:
 
-    * <a href="testRel/myLib">django-pagination</a>:<br />Used for listing the objects of a class.
+*   [django-pagination][]<a href="">django-pagination</a>:<br />
+Used for listing the objects of a class.
+[django-pagination]: http://pypi.python.org/pypi/django-pagination
+	"django-pagination"
     pip install django-pagination
 
-    * <a href="testRel/myLib">django-sorting</a>:<br />Used for sorting fields of a list.
+*   [django-sorting][]<a href="testRel/myLib"></a>:<br />Used for sorting fields of a list.
+[django-sorting]: https://github.com/staticdev/django-sorting
+	"django-sorting"
     pip install -e git://github.com/staticdev/django-sorting.git#egg=django-sorting
-
 
 Final Notes
 -----
