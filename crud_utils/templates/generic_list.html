@@ -51,10 +51,10 @@
 			{% endfor %}
 			</text>
 			{% if user.is_authenticated %}
-				<td><a href="{{ e.id }}/editar/"><img src="{{ MEDIA_URL }}images/document.gif" alt="{% trans 'Editar' %}" title="{% trans 'Editar' %}" /></a></td>
-				<td><a href="{{ e.id }}/deletar/"><img src="{{ MEDIA_URL }}images/icon_x.png" alt="{% trans 'Deletar' %}" title="{% trans 'Deletar' %}" /></a></td>
+				<td><a href="{{ e.id }}/editar/"><img src="{{ STATIC_URL }}images/document.gif" alt="{% trans 'Editar' %}" title="{% trans 'Editar' %}" /></a></td>
+				<td><a href="{{ e.id }}/deletar/"><img src="{{ STATIC_URL }}images/icon_x.png" alt="{% trans 'Deletar' %}" title="{% trans 'Deletar' %}" /></a></td>
 			{% else %}
-			<td><a href="{{ e.get_absolute_url }}"><img src="{{ MEDIA_URL }}images/document.gif" alt="{% trans 'Visualizar' %}" title="{% trans 'Visualizar' %}" /></a></td>
+			<td><a href="{{ e.get_absolute_url }}"><img src="{{ STATIC_URL }}images/document.gif" alt="{% trans 'Visualizar' %}" title="{% trans 'Visualizar' %}" /></a></td>
 			{% endif %}
 			</tr>
 		{% endfor %}
