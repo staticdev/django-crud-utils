@@ -12,7 +12,7 @@
 {% auto_sort object_list %}
 {% autopaginate object_list 15 %}
 
-{# DEBUG - Trocar para ~"hasPermission" #}
+{# DEBUG - TO-DO: Trocar para ~"hasPermission" #}
 <div class="action-search">
 	{% if user.is_authenticated %}
 	<a href="adicionar/" class="button">{% trans 'Add' %} {{ auto_name|lower }}</a>
@@ -47,7 +47,7 @@
 		{% for e in object_list %}
 			<tr class="{% cycle odd, %}">
 			{% for value in e|get_first_field_values %}
-				<td scope="col">{{ value|default:"Não disponível" }}</td>
+				<td scope="col"><a href="{{ e.get_absolute_url }}">{{ value|default:"Não disponível" }}</a></td>
 			{% endfor %}
 			</text>
 			{% if user.is_authenticated %}
