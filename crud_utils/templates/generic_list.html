@@ -47,14 +47,14 @@
 		{% for e in object_list %}
 			<tr class="{% cycle odd, %}">
 			{% for value in e|get_first_field_values %}
-				<td scope="col"><a href="{{ e.get_absolute_url }}">{{ value|default:"Não disponível" }}</a></td>
+				<td scope="col"><a href="{{ e.get_absolute_url|default:e.id }}">{{ value|default:"Não disponível" }}</a></td>
 			{% endfor %}
 			</text>
 			{% if user.is_authenticated %}
 				<td><a href="{{ e.id }}/editar/"><img src="{{ STATIC_URL }}images/document.gif" alt="{% trans 'Editar' %}" title="{% trans 'Editar' %}" /></a></td>
 				<td><a href="{{ e.id }}/deletar/"><img src="{{ STATIC_URL }}images/icon_x.png" alt="{% trans 'Deletar' %}" title="{% trans 'Deletar' %}" /></a></td>
 			{% else %}
-			<td><a href="{{ e.get_absolute_url }}"><img src="{{ STATIC_URL }}images/document.gif" alt="{% trans 'Visualizar' %}" title="{% trans 'Visualizar' %}" /></a></td>
+			<td><a href="{{ e.get_absolute_url|default:e.id }}"><img src="{{ STATIC_URL }}images/document.gif" alt="{% trans 'Visualizar' %}" title="{% trans 'Visualizar' %}" /></a></td>
 			{% endif %}
 			</tr>
 		{% endfor %}
