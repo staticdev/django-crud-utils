@@ -14,7 +14,7 @@
 
 {# DEBUG - TO-DO: Trocar para ~"hasPermission" #}
 <div class="action-search">
-	{% if user.is_authenticated %}
+	{% if user.is_superuser %}
 	<a href="adicionar/" class="button">{% trans 'Add' %} {{ auto_name|lower }}</a>
 	{% endif %}
 
@@ -35,7 +35,7 @@
 		{% for field in object_list.0|get_first_fields %}
 			{% sort_link field.verbose_name|capitalize field.name forloop.counter|stringfy %}
 		{% endfor %}
-		{% if user.is_authenticated %}
+		{% if user.is_superuser %}
 			<th scope="col" class="unsortable"><span>Editar</span></th>
 			<th scope="col" class="unsortable"><span>Deletar</span></th>
 		{% else %}
@@ -50,7 +50,7 @@
 				<td scope="col"><a href="{{ e.get_absolute_url|default:e.id }}">{{ value|default:"Não disponível" }}</a></td>
 			{% endfor %}
 			</text>
-			{% if user.is_authenticated %}
+			{% if user.is_superuser %}
 				<td><a href="{{ e.id }}/editar/"><img src="{{ STATIC_URL }}images/document.gif" alt="{% trans 'Editar' %}" title="{% trans 'Editar' %}" /></a></td>
 				<td><a href="{{ e.id }}/deletar/"><img src="{{ STATIC_URL }}images/icon_x.png" alt="{% trans 'Deletar' %}" title="{% trans 'Deletar' %}" /></a></td>
 			{% else %}
