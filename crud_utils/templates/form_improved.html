@@ -1,0 +1,57 @@
+{% csrf_token %}
+{% if form.fieldsets %}
+	{{ form.non_field_errors }}
+	{% for fieldset in form.fieldsets %}
+	<fieldset class="form {{ fieldset.classes }}">
+		{% if fieldset.legend %}
+			<div class=fieldset>{{ fieldset.legend }}:</div>
+		{% endif %}
+		{% for field in fieldset %}
+			{% if field.is_hidden %}
+				{{ field }}
+			{% else %}
+			<p>
+				<label {% if field.field.required %}class="required-field"{% endif %}>{{ field.label }}:</label> 
+				{{ field }}
+				{% if field.errors %}
+				<span class="error-list">{% for error in field.errors %}{{ error }}{% endfor %}</span>
+				{% endif %}
+				{% if field.help_text %}<img src="{{ STATIC_URL }}images/help-icon.png" class="help-icon" title="{{ field.help_text }}">{% endif %}
+			</p>
+			{% endif %}
+	    {% endfor %}
+	</fieldset>
+	{% endfor %}
+{% elif form.visible_fields %}
+
+	{% for field in form.visible_fields %}
+	<div class="control-group{% if field.errors %} error{% endif %}">
+		<label class="control-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
+
+		<div class="controls">
+			{{ field }}
+
+			{% if field.errors %}
+			{% for error in field.errors %}
+			<span class="help-inline">{{ error }}</span>
+			{% endfor %}
+			{% endif %}
+
+			{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
+		</div>
+	</div>
+	
+	{% comment %}
+	<p>
+		<label {% if field.field.required %}class="required-field"{% endif %} id="">{{ field.label }}</label> 
+		{{ field }}
+			{% if field.errors %}
+			<span class="error-list">{% for error in field.errors %}{{ error }}{% endfor %}</span>
+			{% endif %}
+			{% if field.help_text %}<img src="{{ STATIC_URL }}images/help-icon.png" class="help-icon" title="{{ field.help_text }}">{% endif %}
+	</p>
+	{% endcomment %}
+	{% endfor %}
+{% else %}
+	<h1>Não há campos nem fieldsets para serem exibidos.</h1>
+{% endif %}
