@@ -22,7 +22,7 @@ Don't forget to add `crud-utils` to your `INSTALLED_APPS`.
 	    ...
 	)
 
-Django Crud Utils requires a file called base.html in your template dirs from which will be extended all of its own templates.
+Django Crud Utils requires a file called `base.html` in your template dirs from which will be extended all of its own templates.
 
 ### Dependencies ###
 
