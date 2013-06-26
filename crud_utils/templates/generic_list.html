@@ -20,11 +20,11 @@
 
 {% if object_list %}
 	{% block search %}
-	<form id="quick-search" method="GET" action="">
+	<form class="navbar-form pull-left" method="GET" action="">
 		<fieldset class="search">
 			<label for="qsearch">Search:</label>
 			{{ form.search }}
-			<button class="btn" type="submit" name="submit_search">Buscar</button>
+			<button type="submit" class="btn" name="submit_search">Buscar</button>
 		</fieldset>
 	</form>
 	{% endblock %}
