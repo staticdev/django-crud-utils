@@ -15,7 +15,7 @@
 {# DEBUG - TO-DO: Trocar para ~"hasPermission" #}
 <div class="btn-toolbar">
 	{% if user.is_superuser %}
-	<button class="btn" href="adicionar/" >{% trans 'Add' %} {{ auto_name|lower }}</button>
+	<a class="btn" href="adicionar/" >{% trans 'Add' %} {{ auto_name|lower }}</a>
 	{% endif %}
 
 {% if object_list %}
