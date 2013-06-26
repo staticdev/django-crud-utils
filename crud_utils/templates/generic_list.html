@@ -13,9 +13,9 @@
 {% autopaginate object_list 15 %}
 
 {# DEBUG - TO-DO: Trocar para ~"hasPermission" #}
-<div class="action-search">
+<div class="btn-toolbar">
 	{% if user.is_superuser %}
-	<a href="adicionar/" class="button">{% trans 'Add' %} {{ auto_name|lower }}</a>
+	<a class="btn" href="adicionar/" >{% trans 'Add' %} {{ auto_name|lower }}</a>
 	{% endif %}
 
 {% if object_list %}
