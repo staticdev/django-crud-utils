@@ -11,12 +11,12 @@
 			{% if field.is_hidden %}
 				{{ field }}
 			{% else %}
-			<div class="control-group">
+			<div class="control-group{% if field.errors %} error{% endif %}">
 				<label class="control-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label> 
 				<div class="controls">
 				{{ field }}
 				{% if field.errors %}
-				<label class="error">{% for error in field.errors %}{{ error }}{% endfor %}</label>
+				<span class="help-inline">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 				{% endif %}
 				{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 				</div>
@@ -34,17 +34,17 @@
 		<div class="controls">
 			{{ field }}
 			{% if field.errors %}
-			<label class="error">{% for error in field.errors %}{{ error }}{% endfor %}</label>
+			<span class="help-inline">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 			{% endif %}
 			{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 		</div>
 	</div>
 	
 	{% comment %}
-	<label class="control-label {% if field.field.required %} required-field{% endif %}" id="">{{ field.label }}</label> 
+	<label class="control-label {% if field.field.required %} required-field{% endif %}{% if field.errors %} error{% endif %}" id="">{{ field.label }}</label> 
 	{{ field }}
 		{% if field.errors %}
-		<label class="error">{% for error in field.errors %}{{ error }}{% endfor %}</label>
+		<span class="help-inline">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 		{% endif %}
 		{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 	{% endcomment %}
