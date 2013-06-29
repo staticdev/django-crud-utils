@@ -17,7 +17,7 @@
 				{% if field.errors %}
 				<span class="error-list">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 				{% endif %}
-				{% if field.help_text %}<p class="help-block">{{ field.help_text }}</p>{% endif %}
+				{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 				</div>
 			</div>
 			{% endif %}
@@ -48,7 +48,7 @@
 		{% if field.errors %}
 		<span class="error-list">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 		{% endif %}
-		{% if field.help_text %}<img src="{{ STATIC_URL }}images/help-icon.png" class="help-icon" title="{{ field.help_text }}">{% endif %}
+		{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 	{% endcomment %}
 	{% endfor %}
 {% else %}
