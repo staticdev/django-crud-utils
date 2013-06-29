@@ -16,7 +16,7 @@
 				<div class="controls">
 				{{ field }}
 				{% if field.errors %}
-				<span class="error-list">{% for error in field.errors %}{{ error }}{% endfor %}</span>
+				<label class="error">{% for error in field.errors %}{{ error }}{% endfor %}</label>
 				{% endif %}
 				{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 				</div>
@@ -33,13 +33,9 @@
 		<label class="control-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
 		<div class="controls">
 			{{ field }}
-
 			{% if field.errors %}
-			{% for error in field.errors %}
-			<span class="help-inline">{{ error }}</span>
-			{% endfor %}
+			<label class="error">{% for error in field.errors %}{{ error }}{% endfor %}</label>
 			{% endif %}
-
 			{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 		</div>
 	</div>
@@ -48,7 +44,7 @@
 	<label class="control-label {% if field.field.required %} required-field{% endif %}" id="">{{ field.label }}</label> 
 	{{ field }}
 		{% if field.errors %}
-		<span class="error-list">{% for error in field.errors %}{{ error }}{% endfor %}</span>
+		<label class="error">{% for error in field.errors %}{{ error }}{% endfor %}</label>
 		{% endif %}
 		{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 	{% endcomment %}
