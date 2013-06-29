@@ -2,9 +2,10 @@
 {% if form.fieldsets %}
 	{{ form.non_field_errors }}
 	{% for fieldset in form.fieldsets %}
-	<fieldset class="form {{ fieldset.classes }}">
+	<fieldset class="fieldset {{ fieldset.classes }}">
+		<div class="span6">
 		{% if fieldset.legend %}
-			<div class=fieldset>{{ fieldset.legend }}:</div>
+			<legend>{{ fieldset.legend }}</legend>
 		{% endif %}
 		{% for field in fieldset %}
 			{% if field.is_hidden %}
@@ -22,6 +23,7 @@
 			</div>
 			{% endif %}
 	    {% endfor %}
+		</div>
 	</fieldset>
 	{% endfor %}
 {% elif form.visible_fields %}
