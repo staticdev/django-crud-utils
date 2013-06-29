@@ -6,14 +6,17 @@
 
 {% block content %}
 <h2>{% blocktrans with object.name as objectName %}{{ objectName }} - Detalhes{% endblocktrans %}</h2>
-<div class="main_table">
-	<div class="cell">
-{% for name, value in object|get_fields %}
-	<p>
-		<label>{% trans name|capitalize %}:</label>
-		<span>{{ value }}</span>
-	</p>
-{% endfor %}
+<br />
+<div class="row">
+	<div class="span6">
+	        <table class="table table-striped">
+		{% for name, value in object|get_fields %}
+			<tr>
+				<td><h6>{% trans name|capitalize %}:</h6></td>
+				<td>{{ value }}</td>
+			</tr>
+		{% endfor %}
+		</table>
 	</div>
 </div>
 <br />
