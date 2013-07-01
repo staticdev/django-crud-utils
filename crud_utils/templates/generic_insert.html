@@ -10,7 +10,10 @@
 	<form enctype="multipart/form-data" method="post" action=".">
 		<legend>{% trans 'Modifique os campos que desejar abaixo e clique em salvar. Campos em negrito são obrigatórios.' %}</legend>
 		{% include "form_improved.html" with form=form %}
-		<p><button type="submit" class="btn btn-primary">{% trans 'Salvar' %}</button></p>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
+			<button class="btn">{% trans 'Cancel' %}</button>
+		</div>
 	</form>						
 </div>
 {% endblock %}
