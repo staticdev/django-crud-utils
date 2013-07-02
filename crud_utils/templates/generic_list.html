@@ -10,7 +10,6 @@
 <h2>{{ auto_name_plural }}</h2>
 
 {% auto_sort object_list %}
-{% autopaginate object_list 15 %}
 
 {# DEBUG - TO-DO: Trocar para ~"hasPermission" #}
 <div class="btn-toolbar">
@@ -60,7 +59,7 @@
 		{% endfor %}
 		</tbody>
 	</table>
-	{% bootstrap_paginate %}
+	{% bootstrap_paginate page_obj range=15 %}
 {% else %}
 	</div>
 	<div class="calend-calendar">
