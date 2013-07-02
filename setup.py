@@ -30,7 +30,7 @@ setup(
 #    ],
     install_requires=[
 #        'Django>=1.3.1',
-        'django-pagination>=1.0.7',
+        'django-bootstrap-pagination>=0.1.10',
 #        'django-sort==123dev',
     ],
     classifiers = [
