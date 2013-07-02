@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load generic_templates %}
 {% load i18n %}
-{% load pagination_tags %}
+{% load bootstrap_pagination %}
 {% load sorting %}
 
 {% block title %}{{ auto_name_plural }}{% endblock %}
@@ -60,7 +60,7 @@
 		{% endfor %}
 		</tbody>
 	</table>
-	{% paginate %}
+	{% bootstrap_paginate %}
 {% else %}
 	</div>
 	<div class="calend-calendar">
