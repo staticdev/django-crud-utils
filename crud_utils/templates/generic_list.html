@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load generic_templates %}
 {% load i18n %}
-{% load bootstrap_pagination %}
+{% load pagination_tags %}
 {% load sorting %}
 
 {% block title %}{{ auto_name_plural }}{% endblock %}
@@ -10,7 +10,7 @@
 <h2>{{ auto_name_plural }}</h2>
 
 {% auto_sort object_list %}
-
+{% autopaginate object_list 10 %}
 {# DEBUG - TO-DO: Trocar para ~"hasPermission" #}
 <div class="btn-toolbar">
 	{% if user.is_superuser %}
@@ -59,7 +59,7 @@
 		{% endfor %}
 		</tbody>
 	</table>
-	{% bootstrap_paginate object_list range=15 %}
+	{% paginate %}
 {% else %}
 	</div>
 	<div class="calend-calendar">
