@@ -32,7 +32,7 @@ For correct usage of this app, you need to install the following dependencies:
 Uses Twitter's Bootstrap Pagination of objects of a class.
 [django-bootstrap-pagination]: http://pypi.python.org/pypi/django-bootstrap-pagination
 
-    pip install django-pagination
+    pip install django-bootstrap-pagination
 
 *   [django-sorting][]:
 Used for sorting fields of a list.
