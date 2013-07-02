@@ -18,6 +18,7 @@ Don't forget to add `crud-utils` to your `INSTALLED_APPS`.
     
     INSTALLED_APPS = (
         ...
+	    'bootstrap-pagination',        
 	    'crud-utils',
 	    ...
 	)
