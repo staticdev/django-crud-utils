@@ -28,9 +28,9 @@ Django Crud Utils requires a file called `base.html` in your template dirs from 
 
 For correct usage of this app, you need to install the following dependencies:
 
-*   [django-pagination][]:
-Used for listing the objects of a class.
-[django-pagination]: http://pypi.python.org/pypi/django-pagination
+*   [django-bootstrap-pagination][]:
+Uses Twitter's Bootstrap Pagination of objects of a class.
+[django-bootstrap-pagination]: http://pypi.python.org/pypi/django-bootstrap-pagination
 
     pip install django-pagination
 
