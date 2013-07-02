@@ -30,7 +30,7 @@ setup(
 #    ],
     install_requires=[
         'Django >= 1.2.0',
-        'django-bootstrap-pagination',
+#        'django-bootstrap-pagination',
     ],
     classifiers = [
         'License :: OSI Approved :: MIT License',
