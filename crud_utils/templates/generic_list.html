@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% load generic_templates %}
 {% load i18n %}
+{% load generic_templates %}
 {% load pagination_tags %}
 {% load sorting %}
 
@@ -11,7 +11,7 @@
 
 {% auto_sort object_list %}
 {% autopaginate object_list 10 %}
-{# DEBUG - TO-DO: Trocar para ~"hasPermission" #}
+{# TO-DO: Trocar para ~"hasPermission" #}
 <div class="btn-toolbar">
 	{% if user.is_superuser %}
 	<a class="btn" href="adicionar/" >{% trans 'Add' %} {{ auto_name|lower }}</a>
@@ -28,7 +28,7 @@
 	</form>
 	{% endblock %}
 </div><br />
-	<table id="box-table-a">
+	<table class="table table-striped table-hover table-bordered">
 		<thead>
 		<tr>
 		{% for field in object_list.0|get_first_fields %}
@@ -44,7 +44,7 @@
 		</thead>
 		<tbody>
 		{% for e in object_list %}
-			<tr class="{% cycle odd, %}">
+			<tr>
 			{% for value in e|get_first_field_values %}
 				<td scope="col"><a href="{{ e.get_absolute_url|default:e.id }}">{{ value|default:"Não disponível" }}</a></td>
 			{% endfor %}
