@@ -64,10 +64,12 @@
 	</div>
 {% else %}
 	</div>
-	<div class="calend-calendar">
-		<br />
-		<div class="calend-daylist">{% trans 'Não há ' %}{{ auto_name_plural|lower }}{% trans ' para serem mostrados.' %}</div>
-		<br />
-	</div>
+	<div class="alert alert-block alert-info">
+                {% trans 'Não há ' %}{{ auto_name_plural|lower }}{% trans ' para serem mostrados.' %}
+                {# TO-DO: Trocar para ~"hasPermission" #}
+                {% if user.is_superuser %}
+                	<a href="adicionar/">{% trans 'Add' %} {{ auto_name|lower }}</a>
+                {% endif %}
+        </div>
 {% endif %}
 {% endblock %}
