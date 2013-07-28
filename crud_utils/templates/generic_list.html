@@ -50,10 +50,10 @@
 			{% endfor %}
 			</text>
 			{% if user.is_superuser %}
-				<td><a href="{{ e.id }}/editar/"><img src="{{ STATIC_URL }}images/document.gif" alt="{% trans 'Editar' %}" title="{% trans 'Editar' %}" /></a></td>
-				<td><a href="{{ e.id }}/deletar/"><img src="{{ STATIC_URL }}images/icon_x.png" alt="{% trans 'Deletar' %}" title="{% trans 'Deletar' %}" /></a></td>
+				<td><a href="{{ e.id }}/editar/"><span class="icon-pencil"></a></td>
+				<td><a href="{{ e.id }}/deletar/"><span class="icon-trash"></span></a></td>
 			{% else %}
-			<td><a href="{{ e.get_absolute_url|default:e.id }}"><img src="{{ STATIC_URL }}images/document.gif" alt="{% trans 'Visualizar' %}" title="{% trans 'Visualizar' %}" /></a></td>
+			<td><a href="{{ e.get_absolute_url|default:e.id }}"><span class="icon-eye-open"></span></a></td>
 			{% endif %}
 			</tr>
 		{% endfor %}
