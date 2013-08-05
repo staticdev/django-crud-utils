@@ -40,7 +40,7 @@ For correct usage of this app, you need to install the following dependencies:
 
 * `django-sorting-bootstrap`_: Used for sorting fields of a list. Install with::
 
-    pip install -e git://github.com/staticdev/django-sorting.git#egg=django-sorting
+    pip install django-sorting-bootstrap
 
 Final Notes
 -------------
