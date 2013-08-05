@@ -8,40 +8,44 @@ Setup
 
 Assuming you have django installed, you'll have to make the following modifcations to your `settings.py` file.
 
-### Basic Settings ###
-
-Install Django Crud Utils with your favorite Python package manager:
+Installation
+------------
+To install ``django-crud-utils`` simply run::
 
     pip install -e git://github.com/staticdev/django-crud-utils.git#egg=django-crud-utils
 
-Don't forget to add `crud-utils` to your `INSTALLED_APPS`.
-    
-    INSTALLED_APPS = (
-        ...
-	    'bootstrap-pagination',        
-	    'crud-utils',
-	    ...
-	)
+Configuration
+-------------
+
+Don't forget to add `crud-utils` to your `INSTALLED_APPS`::
+
+      INSTALLED_APPS = (
+         ...
+         'pagination_bootstrap',
+         'sorting_bootstrap',
+         'crud_utils',
+      )
+
 
 Django Crud Utils requires a file called `base.html` in your template dirs from which will be extended all of its own templates.
 
-### Dependencies ###
+Dependencies
+-------------
 
 For correct usage of this app, you need to install the following dependencies:
 
-*   [django-bootstrap-pagination][]:
-Uses Twitter's Bootstrap Pagination of objects of a class.
-[django-bootstrap-pagination]: http://pypi.python.org/pypi/django-bootstrap-pagination
+* `django-pagination-bootstrap`_: Uses Twitter's Bootstrap Pagination of objects of a class. Install with::
 
     pip install django-bootstrap-pagination
 
-*   [django-sorting][]:
-Used for sorting fields of a list.
-[django-sorting]: https://github.com/staticdev/django-sorting
+* `django-sorting-bootstrap`_: Used for sorting fields of a list. Install with::
 
     pip install -e git://github.com/staticdev/django-sorting.git#egg=django-sorting
 
 Final Notes
------
+-------------
+
 This app is in alpha version, this doc needs to be updated.
-========================
+
+.. _django-pagination-bootstrap: http://pypi.python.org/pypi/django-pagination-bootstrap
+.. _django-sorting-bootstrap: http://pypi.python.org/pypi/django-sorting-bootstrap
