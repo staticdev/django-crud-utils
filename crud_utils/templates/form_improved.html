@@ -2,35 +2,34 @@
 {% if form.fieldsets %}
 	{{ form.non_field_errors }}
 	{% for fieldset in form.fieldsets %}
-	<fieldset class="fieldset {{ fieldset.classes }}">
-		<div class="span8">
-		{% if fieldset.legend %}
-			<legend>{{ fieldset.legend }}</legend>
-		{% endif %}
-		{% for field in fieldset %}
-			{% if field.is_hidden %}
-				{{ field }}
-			{% else %}
-			<div class="control-group{% if field.errors %} error{% endif %}">
-				<label class="control-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label> 
-				<div class="controls">
+	<fieldset class="crud {{ fieldset.classes }}">
+	{% if fieldset.legend %}
+		<legend>{{ fieldset.legend }}</legend>
+	{% endif %}
+	{% for field in fieldset %}
+		{% if field.is_hidden %}
+			{{ field }}
+		{% else %}
+		<div class="control-group{% if field.errors %} error{% endif %}">
+			<label class="control-label field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label> 
+			<div class="controls">
 				{{ field }}
 				{% if field.errors %}
 				<span class="help-inline">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 				{% endif %}
 				{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
-				</div>
 			</div>
-			{% endif %}
-	    {% endfor %}
 		</div>
+		{% endif %}
+    {% endfor %}
 	</fieldset>
+
 	{% endfor %}
 {% elif form.visible_fields %}
-
+	<fieldset class="crud"> 
 	{% for field in form.visible_fields %}
 	<div class="control-group{% if field.errors %} error{% endif %}">
-		<label class="control-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
+		<label class="control-label field-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
 		<div class="controls">
 			{{ field }}
 			{% if field.errors %}
@@ -49,6 +48,7 @@
 		{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
 	{% endcomment %}
 	{% endfor %}
+	</fieldset>
 {% else %}
 	<h2>Não há campos nem fieldsets para serem exibidos.</h2>
 {% endif %}

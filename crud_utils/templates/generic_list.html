@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load generic_templates %}
 {% load pagination_tags %}
-{% load sorting %}
+{% load sorting_tags %}
 
 {% block title %}{{ auto_name_plural }}{% endblock %}
 
@@ -19,9 +19,8 @@
 
 {% if object_list %}
 	{% block search %}
-	<form class="pull-right" method="GET" action="">
+	<form class="pull-right" method="GET">
 		<fieldset class="input-append search">
-			<label for="qsearch">Search:</label>
 			{{ form.search }}
 			<input type="submit" class="btn btn-group" name="submit_search" value="Buscar"/>
 		</fieldset>
@@ -32,8 +31,9 @@
 		<thead>
 		<tr>
 		{% for field in object_list.0|get_first_fields %}
-			{% sort_link field.verbose_name|capitalize field.name forloop.counter|stringfy %}
+			{% sort_th field.verbose_name|capitalize field.name forloop.counter|stringfy %}
 		{% endfor %}
+			{# sort_headers cl #}
 		{% if user.is_superuser %}
 			<th scope="col" class="unsortable"><span>Editar</span></th>
 			<th scope="col" class="unsortable"><span>Deletar</span></th>
@@ -46,11 +46,10 @@
 		{% for e in object_list %}
 			<tr>
 			{% for value in e|get_first_field_values %}
-				<td scope="col"><a href="{{ e.get_absolute_url|default:e.id }}">{{ value|default:"Não disponível" }}</a></td>
+				<td><a href="{{ e.get_absolute_url|default:e.id }}">{{ value|default:"Não disponível" }}</a></td>
 			{% endfor %}
-			</text>
 			{% if user.is_superuser %}
-				<td><a href="{{ e.id }}/editar/"><span class="icon-pencil"></a></td>
+				<td><a href="{{ e.id }}/editar/"><span class="icon-pencil"></span></a></td>
 				<td><a href="{{ e.id }}/deletar/"><span class="icon-trash"></span></a></td>
 			{% else %}
 			<td><a href="{{ e.get_absolute_url|default:e.id }}"><span class="icon-eye-open"></span></a></td>

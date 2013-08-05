@@ -7,17 +7,17 @@
 {% block content %}
 <h2>{% blocktrans with object.name as objectName %}{{ objectName }} - Detalhes{% endblocktrans %}</h2>
 <br />
-<div class="row">
-	<div class="span6">
-	        <table class="table table-striped">
-		{% for name, value in object|get_fields %}
-			<tr>
-				<td><h6>{% trans name|capitalize %}:</h6></td>
-				<td>{{ value }}</td>
-			</tr>
-		{% endfor %}
-		</table>
+<fieldset class="crud"> 
+{% for name, value in object|get_fields %}
+<div class="control-group">
+	<div class="field-label">
+		<label>{% trans name|capitalize %}:</label>
+	</div>
+	<div class="controls">
+		{{ value }}
 	</div>
 </div>
+{% endfor %}
+</fieldset>
 <br />
 {% endblock %}
