@@ -1,4 +1,5 @@
-from django import forms
+#change in forms to use floppyforms widgets
+import floppyforms as forms
 from django.utils.translation import ugettext as _
 
 
