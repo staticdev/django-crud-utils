@@ -21,6 +21,7 @@ Don't forget to add `crud-utils` to your `INSTALLED_APPS`::
 
       INSTALLED_APPS = (
          ...
+         'floppyforms',
          'pagination_bootstrap',
          'sorting_bootstrap',
          'crud_utils',
@@ -33,6 +34,10 @@ Dependencies
 -------------
 
 For correct usage of this app, you need to install the following dependencies:
+
+* `django-floppyforms`_: Used for HTML5 rendering of forms in the Create/Update templates. Install with::
+
+    pip install -U django-floppyforms
 
 * `django-pagination-bootstrap`_: Uses Twitter's Bootstrap Pagination of objects of a class. Install with::
 
@@ -47,5 +52,6 @@ Final Notes
 
 This app is in alpha version, this doc needs to be updated.
 
+.. _django-floppyforms: https://pypi.python.org/pypi/django-floppyforms
 .. _django-pagination-bootstrap: http://pypi.python.org/pypi/django-pagination-bootstrap
 .. _django-sorting-bootstrap: http://pypi.python.org/pypi/django-sorting-bootstrap
