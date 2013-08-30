@@ -14,15 +14,15 @@
 {# TO-DO: Trocar para ~"hasPermission" #}
 <div class="btn-toolbar">
 	{% if user.is_superuser %}
-	<a class="btn" href="adicionar/" >{% trans 'Add' %} {{ auto_name|lower }}</a>
+	<a class="btn btn-default" href="adicionar/" >{% trans 'Add' %} {{ auto_name|lower }}</a>
 	{% endif %}
 
 {% if object_list %}
 	{% block search %}
 	<form class="pull-right" method="GET">
-		<fieldset class="input-append search">
+		<fieldset class="input-group search">
 			{{ form.search }}
-			<input type="submit" class="btn btn-group" name="submit_search" value="Buscar"/>
+			<input type="submit" class="btn btn-group" name="submit_search" value="Buscar">
 		</fieldset>
 	</form>
 	{% endblock %}
@@ -46,10 +46,10 @@
 				<td><a href="{{ e.get_absolute_url|default:e.id }}">{{ value|default:"Não disponível" }}</a></td>
 			{% endfor %}
 			{% if user.is_superuser %}
-				<td><a href="{{ e.id }}/editar/"><span class="icon-pencil"></span></a></td>
-				<td><a href="{{ e.id }}/deletar/"><span class="icon-trash"></span></a></td>
+				<td><a href="{{ e.id }}/editar/"><span class="glyphicon glyphicon-pencil"></span></a></td>
+				<td><a href="{{ e.id }}/deletar/"><span class="glyphicon glyphicon-trash"></span></a></td>
 			{% else %}
-			<td><a href="{{ e.get_absolute_url|default:e.id }}"><span class="icon-eye-open"></span></a></td>
+			<td><a href="{{ e.get_absolute_url|default:e.id }}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
 			{% endif %}
 			</tr>
 		{% endfor %}
