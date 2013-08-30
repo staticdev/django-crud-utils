@@ -19,12 +19,12 @@
 
 {% if object_list %}
 	{% block search %}
-	<div class="col-md-3 input-group pull-right">	
+	<form class="col-md-3 input-group pull-right" method="GET">	
 		{{ form.search }}
 		<span class="input-group-btn">
-			<input type="submit" class="btn btn-group" name="submit_search" value="Buscar">
+			<input type="submit" class="btn btn-default btn-group" name="submit_search" value="Buscar">
 		</span>
-	</div>
+	</form>
 	{% endblock %}
 </div><br />
 	<table class="table table-striped table-hover table-bordered">
