@@ -12,7 +12,7 @@
 		{% else %}
 		<div class="form-group{% if field.errors %} has-error{% endif %}">
 			<label class="field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label> 
-			<div class="controls">
+			<div class="input-group">
 				{{ field }}
 				{% if field.errors %}
 				<span class="help-block">{% for error in field.errors %}{{ error }}{% endfor %}</span>
@@ -30,7 +30,7 @@
 	{% for field in form.visible_fields %}
 	<div class="form-group{% if field.errors %} has-error{% endif %}">
 		<label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
-		<div class="controls">
+		<div class="input-group">
 			{{ field }}
 			{% if field.errors %}
 			<span class="help-block">{% for error in field.errors %}{{ error }}{% endfor %}</span>
