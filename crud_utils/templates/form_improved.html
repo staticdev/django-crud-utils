@@ -2,7 +2,8 @@
 {% if form.fieldsets %}
 	{{ form.non_field_errors }}
 	{% for fieldset in form.fieldsets %}
-	<fieldset class="table table-bordered {{ fieldset.classes }}">
+	<table class="table table-bordered">
+	<fieldset class="{{ fieldset.classes }}">
 	{% if fieldset.legend %}
 		<legend>{{ fieldset.legend }}</legend>
 	{% endif %}
@@ -10,7 +11,7 @@
 		{% if field.is_hidden %}
 			{{ field }}
 		{% else %}
-		<div class="form-group{% if field.errors %} has-error{% endif %}">
+		<tr class="form-group{% if field.errors %} has-error{% endif %}">
 			<td><label class="field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label></td>
 			<td><div class="input-group">
 				{{ field }}
@@ -19,16 +20,17 @@
 				{% endif %}
 				{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
 			</div></td>
-		</div>
+		</tr>
 		{% endif %}
     {% endfor %}
-	</fieldset>
+	</fieldset></table>
 
 	{% endfor %}
 {% elif form.visible_fields %}
-	<fieldset class="table table-bordered"> 
+	<table class="table table-bordered">
+	<fieldset> 
 	{% for field in form.visible_fields %}
-	<div class="form-group{% if field.errors %} has-error{% endif %}">
+	<tr class="form-group{% if field.errors %} has-error{% endif %}">
 		<td><label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label></td>
 		<td><div class="input-group">
 			{{ field }}
@@ -37,7 +39,7 @@
 			{% endif %}
 			{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
 		</div></td>
-	</div>
+	</tr>
 	
 	{% comment %}
 	<div class="form-group{% if field.errors %} has-error{% endif %}">
@@ -49,7 +51,7 @@
 			{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
 	{% endcomment %}
 	{% endfor %}
-	</fieldset>
+	</fieldset></table>
 {% else %}
 	<h2>Não há campos para serem exibidos.</h2>
 {% endif %}
