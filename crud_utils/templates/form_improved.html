@@ -10,14 +10,14 @@
 		{% if field.is_hidden %}
 			{{ field }}
 		{% else %}
-		<div class="control-group{% if field.errors %} error{% endif %}">
-			<label class="control-label field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label> 
+		<div class="form-group{% if field.errors %} has-error{% endif %}">
+			<label class="field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label> 
 			<div class="controls">
 				{{ field }}
 				{% if field.errors %}
-				<span class="help-inline">{% for error in field.errors %}{{ error }}{% endfor %}</span>
+				<span class="help-block">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 				{% endif %}
-				{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
+				{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
 			</div>
 		</div>
 		{% endif %}
@@ -28,27 +28,28 @@
 {% elif form.visible_fields %}
 	<fieldset class="crud"> 
 	{% for field in form.visible_fields %}
-	<div class="control-group{% if field.errors %} error{% endif %}">
-		<label class="control-label field-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
+	<div class="form-group{% if field.errors %} has-error{% endif %}">
+		<label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
 		<div class="controls">
 			{{ field }}
 			{% if field.errors %}
-			<span class="help-inline">{% for error in field.errors %}{{ error }}{% endfor %}</span>
+			<span class="help-block">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 			{% endif %}
-			{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
+			{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
 		</div>
 	</div>
 	
 	{% comment %}
-	<label class="control-label {% if field.field.required %} required-field{% endif %}{% if field.errors %} error{% endif %}" id="">{{ field.label }}</label> 
-	{{ field }}
-		{% if field.errors %}
-		<span class="help-inline">{% for error in field.errors %}{{ error }}{% endfor %}</span>
-		{% endif %}
-		{% if field.help_text %}<span class="help-inline">{{ field.help_text }}</span>{% endif %}
+	<div class="form-group{% if field.errors %} has-error{% endif %}">
+		<label class="{% if field.field.required %} required-field{% endif %}" id="">{{ field.label }}</label> 
+		{{ field }}
+			{% if field.errors %}
+			<span class="help-block">{% for error in field.errors %}{{ error }}{% endfor %}</span>
+			{% endif %}
+			{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
 	{% endcomment %}
 	{% endfor %}
 	</fieldset>
 {% else %}
-	<h2>Não há campos nem fieldsets para serem exibidos.</h2>
+	<h2>Não há campos para serem exibidos.</h2>
 {% endif %}
