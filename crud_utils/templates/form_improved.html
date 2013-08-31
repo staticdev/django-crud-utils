@@ -11,14 +11,14 @@
 			{{ field }}
 		{% else %}
 		<div class="form-group{% if field.errors %} has-error{% endif %}">
-			<label class="field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label> 
-			<div class="input-group">
+			<td><label class="field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label></td>
+			<td><div class="input-group">
 				{{ field }}
 				{% if field.errors %}
 				<span class="help-block">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 				{% endif %}
 				{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
-			</div>
+			</div></td>
 		</div>
 		{% endif %}
     {% endfor %}
@@ -29,14 +29,14 @@
 	<fieldset class="table table-bordered"> 
 	{% for field in form.visible_fields %}
 	<div class="form-group{% if field.errors %} has-error{% endif %}">
-		<label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
-		<div class="input-group">
+		<td><label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label></td>
+		<td><div class="input-group">
 			{{ field }}
 			{% if field.errors %}
 			<span class="help-block">{% for error in field.errors %}{{ error }}{% endfor %}</span>
 			{% endif %}
 			{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
-		</div>
+		</div></td>
 	</div>
 	
 	{% comment %}
