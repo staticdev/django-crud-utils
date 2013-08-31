@@ -6,13 +6,13 @@
 
 {% block content %}
 <h2>{% if object %}Editar {{ object|class_verbose_name }} - {{ object }}{% else %}{% trans 'Add' %} {{ form|form_verbose_name }}{% endif %}</h2>
-<div class="main_table">
     <strong>{% trans 'Modifique os campos que desejar abaixo e clique em salvar. Campos em negrito são obrigatórios.' %}</strong>
+    <div class="table-responsive">
 	<form enctype="multipart/form-data" method="post" action=".">
 		{% include "form_improved.html" with form=form %}
 		<div class="form-actions">
 			<button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
 		</div>
 	</form>						
-</div>
+    </div>
 {% endblock %}
