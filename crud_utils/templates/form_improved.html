@@ -2,7 +2,7 @@
 {% if form.fieldsets %}
 	{{ form.non_field_errors }}
 	{% for fieldset in form.fieldsets %}
-	<fieldset class="crud {{ fieldset.classes }}">
+	<fieldset class="table table-bordered {{ fieldset.classes }}">
 	{% if fieldset.legend %}
 		<legend>{{ fieldset.legend }}</legend>
 	{% endif %}
@@ -26,7 +26,7 @@
 
 	{% endfor %}
 {% elif form.visible_fields %}
-	<fieldset class="crud"> 
+	<fieldset class="table table-bordered"> 
 	{% for field in form.visible_fields %}
 	<div class="form-group{% if field.errors %} has-error{% endif %}">
 		<label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label>
