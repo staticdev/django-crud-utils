@@ -2,8 +2,7 @@
 {% if form.fieldsets %}
 	{{ form.non_field_errors }}
 	{% for fieldset in form.fieldsets %}
-	<table class="table table-bordered doubletable">
-	<fieldset class="{{ fieldset.classes }}">
+	<table class="table table-bordered doubletable {{ fieldset.classes }}">
 	{% if fieldset.legend %}
 		<legend>{{ fieldset.legend }}</legend>
 	{% endif %}
@@ -23,12 +22,11 @@
 		</tr>
 		{% endif %}
     {% endfor %}
-	</fieldset></table>
+	</table>
 
 	{% endfor %}
 {% elif form.visible_fields %}
 	<table class="table table-bordered doubletable">
-	<fieldset> 
 	{% for field in form.visible_fields %}
 	<tr class="form-group{% if field.errors %} has-error{% endif %}">
 		<td><label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label></td>
@@ -51,7 +49,7 @@
 			{% if field.help_text %}<span class="help-block">{{ field.help_text }}</span>{% endif %}
 	{% endcomment %}
 	{% endfor %}
-	</fieldset></table>
+	</table>
 {% else %}
 	<h2>Não há campos para serem exibidos.</h2>
 {% endif %}
