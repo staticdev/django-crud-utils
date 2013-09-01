@@ -11,9 +11,9 @@
   <table class="table table-bordered"> 
 {% for name, value in object|get_fields %}
   <tr>
-    <th class="field-label">
+    <td class="field-label">
       <label>{% trans name|capitalize %}:</label>
-    </th>
+    </td>
     <td>
       {{ value }}
     </td>
