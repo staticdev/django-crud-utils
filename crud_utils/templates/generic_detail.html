@@ -11,10 +11,10 @@
   <table class="table table-bordered doubletable"> 
 {% for name, value in object|get_fields %}
   <tr class="row">
-    <td class="field-label col-md-4">
+    <td class="field-label col-md-3">
       <label>{% trans name|capitalize %}:</label>
     </td>
-    <td class="col-md-8">
+    <td class="col-md-9">
       {{ value }}
     </td>
   </tr>
