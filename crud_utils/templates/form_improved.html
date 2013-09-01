@@ -2,7 +2,7 @@
 {% if form.fieldsets %}
 	{{ form.non_field_errors }}
 	{% for fieldset in form.fieldsets %}
-	<table class="table table-bordered">
+	<table class="table table-bordered doubletable">
 	<fieldset class="{{ fieldset.classes }}">
 	{% if fieldset.legend %}
 		<legend>{{ fieldset.legend }}</legend>
@@ -27,7 +27,7 @@
 
 	{% endfor %}
 {% elif form.visible_fields %}
-	<table class="table table-bordered">
+	<table class="table table-bordered doubletable">
 	<fieldset> 
 	{% for field in form.visible_fields %}
 	<tr class="form-group{% if field.errors %} has-error{% endif %}">
