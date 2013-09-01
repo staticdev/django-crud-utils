@@ -10,9 +10,9 @@
 		{% if field.is_hidden %}
 			{{ field }}
 		{% else %}
-		<tr class="form-group{% if field.errors %} has-error{% endif %}">
-			<td><label class="field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label></td>
-			<td><div class="input-group">
+		<tr class="row form-group{% if field.errors %} has-error{% endif %}">
+			<td class="col-md-3"><label class="field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label></td>
+			<td class="col-md-9"><div class="input-group">
 				{{ field }}
 				{% if field.errors %}
 				<span class="help-block">{% for error in field.errors %}{{ error }}{% endfor %}</span>
@@ -27,9 +27,9 @@
 {% elif form.visible_fields %}
 	<table class="table table-bordered doubletable">
 	{% for field in form.visible_fields %}
-	<tr class="form-group{% if field.errors %} has-error{% endif %}">
-		<td><label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label></td>
-		<td><div class="input-group">
+	<tr class="row form-group{% if field.errors %} has-error{% endif %}">
+		<td class="col-md-3"><label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label></td>
+		<td class="col-md-9"><div class="input-group">
 			{{ field }}
 			{% if field.errors %}
 			<span class="help-block">{% for error in field.errors %}{{ error }}{% endfor %}</span>
