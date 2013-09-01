@@ -8,17 +8,17 @@
 <h2>{% blocktrans with object.name as objectName %}{{ objectName }} - Detalhes{% endblocktrans %}</h2>
 <br>
 <div class="table-responsive">
-  <fieldset class="table table-bordered"> 
+  <table class="table table-bordered"> 
   {% for name, value in object|get_fields %}
-  <div class="form-group">
-    <div class="field-label">
+  <tr><div class="form-group">
+    <td><div class="field-label">
       <label>{% trans name|capitalize %}:</label>
-    </div>
-  <div class="input-group">
-    {{ value }}
-  </div>
-</div>
+    </div></td>
+    <td><div class="input-group">
+      {{ value }}
+    </div></td>
+  </div></tr>
 {% endfor %}
-</fieldset>
+</table>
 </div>
 {% endblock %}
