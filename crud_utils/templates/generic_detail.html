@@ -9,16 +9,20 @@
 <br>
 <div class="table-responsive">
   <table class="table table-bordered"> 
+  <tr>
   {% for name, value in object|get_fields %}
-  <tr class="form-group">
     <td class="field-label">
       <label>{% trans name|capitalize %}:</label>
     </td>
+  {% endfor %}
+  </tr>
+  <tr>
+  {% for name, value in object|get_fields %}
     <td>
       {{ value }}
     </td>
+  {% endfor %}
   </tr>
-{% endfor %}
 </table>
 </div>
 {% endblock %}
