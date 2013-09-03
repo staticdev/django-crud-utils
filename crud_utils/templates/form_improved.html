@@ -5,13 +5,13 @@
 	{% if fieldset.legend %}
 	<h3>{{ fieldset.legend }}</h3>
 	{% endif %}
-	<table class="table table-bordered doubletable {{ fieldset.classes }}">
+	<table class="table table-bordered {{ fieldset.classes }}">
 	{% for field in fieldset %}
 		{% if field.is_hidden %}
 			{{ field }}
 		{% else %}
 		<tr class="row form-group{% if field.errors %} has-error{% endif %}">
-			<td class="col-md-3"><label class="field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label></td>
+			<td class="col-md-3 focus"><label class="field-label{% if field.field.required %} required-field{% endif %}">{{ field.label }}:</label></td>
 			<td class="col-md-9 active"><div class="input-group">
 				{{ field }}
 				{% if field.errors %}
@@ -25,10 +25,10 @@
 	</table>
 	{% endfor %}
 {% elif form.visible_fields %}
-	<table class="table table-bordered doubletable">
+	<table class="table table-bordered">
 	{% for field in form.visible_fields %}
 	<tr class="row form-group{% if field.errors %} has-error{% endif %}">
-		<td class="col-md-3"><label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label></td>
+		<td class="col-md-3 focus"><label class="field-label" for="id_{{ field.html_name }}">{{ field.label }}</label></td>
 		<td class="col-md-9 active"><div class="input-group">
 			{{ field }}
 			{% if field.errors %}
