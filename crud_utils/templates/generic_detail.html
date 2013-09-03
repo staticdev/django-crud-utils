@@ -8,10 +8,10 @@
 <h2>{% blocktrans with object.name as objectName %}{{ objectName }} - Detalhes{% endblocktrans %}</h2>
 <br>
 <div class="table-responsive">
-  <table class="table table-bordered doubletable"> 
+  <table class="table table-bordered"> 
 {% for name, value in object|get_fields %}
   <tr class="row">
-    <td class="field-label col-md-3">
+    <td class="field-label col-md-3 focus">
       <label>{% trans name|capitalize %}:</label>
     </td>
     <td class="col-md-9 active">
