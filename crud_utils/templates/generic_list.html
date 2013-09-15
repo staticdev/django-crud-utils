@@ -31,9 +31,10 @@
 	<table class="table table-striped table-hover table-bordered">
 		<thead>
 		<tr>
-		{% for field in object_list.0|get_first_fields %}
-			{% sort_th field.verbose_name|capitalize field.name forloop.counter|stringfy %}
-		{% endfor %}
+		{# for field in object_list.0|get_first_fields #}
+			{# sort_th field.verbose_name|capitalize field.name forloop.counter|stringfy #}
+		{# endfor #}
+		{% sort_headers cl %}
 		{% if user.is_superuser %}
 			<th scope="col" class="unsortable"><span>Editar</span></th>
 			<th scope="col" class="unsortable"><span>Deletar</span></th>
