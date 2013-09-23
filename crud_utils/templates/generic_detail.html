@@ -6,7 +6,12 @@
 
 {% block content %}
 <h2>{% blocktrans with object.name as objectName %}{{ objectName }} - Detalhes{% endblocktrans %}</h2>
-<br>
+{# TO-DO: Trocar para ~"hasPermission" #}
+<div class="btn-toolbar">
+	{% if user.is_superuser %}
+	<a class="btn btn-default" href="../editar/" >{% trans 'Edit' %} {{ auto_name|lower }}</a>
+	{% endif %}
+</div><br>
 <div class="table-responsive">
   <table class="table table-bordered"> 
 {% for name, value in object|get_fields %}
