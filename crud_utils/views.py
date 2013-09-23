@@ -94,7 +94,7 @@ class CrudUtilsListView(ListView):
         cl = SimpleChangeList(self.request, self.model, list_display)
         context['cl'] = cl
 
-        # Adiciona form de search no template
+        # Adds form search to the template
         if self.request.method == "GET" and "submit_search" in self.request.GET:
             context['form'] = SearchForm(self.request.GET)
             term = self.request.GET.get('search', '')
@@ -115,6 +115,6 @@ class CrudUtilsListView(ListView):
 
         else:
             context['form'] = SearchForm()
-        # ordena por name
+        # Sorts by name
         context['object_list'] = context['object_list'].order_by('name')
         return context
