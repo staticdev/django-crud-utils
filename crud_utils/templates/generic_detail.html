@@ -9,11 +9,9 @@
 {# TO-DO: Trocar para ~"hasPermission" #}
 <div class="btn-toolbar">
 	{% if user.is_superuser %}
-	<form action="editar/" method="get">
-	    <button type="button" value="Go to my link location" class="btn btn-default">
-	        <span class="glyphicon glyphicon-pencil"></span>
-            </button>
-        </form>
+	<a href="editar/" title="Editar" class="btn btn-default">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
 	{% endif %}
 </div><br>
 <div class="table-responsive">
