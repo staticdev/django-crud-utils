@@ -9,7 +9,11 @@
 {# TO-DO: Trocar para ~"hasPermission" #}
 <div class="btn-toolbar">
 	{% if user.is_superuser %}
-	<a class="btn btn-default" href="editar/" >{% trans 'Edit' %} {{ auto_name|lower }}</a>
+	<form action="editar/" method="get">
+	    <button type="button" value="Go to my link location" class="btn btn-default">
+	        <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+        </form>
 	{% endif %}
 </div><br>
 <div class="table-responsive">
