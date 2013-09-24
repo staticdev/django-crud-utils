@@ -37,8 +37,6 @@
 		{% sort_headers cl %}
 		{% if user.is_superuser %}
 			<th scope="col" class="unsortable"><span>Deletar</span></th>
-		{% else %}
-			<th scope="col" class="unsortable"><span>Visualizar</span></th>
 		{% endif %}
 		</tr>
 		</thead>
@@ -50,8 +48,6 @@
 			{% endfor %}
 			{% if user.is_superuser %}
 				<td><a href="{{ e.id }}/deletar/"><span class="glyphicon glyphicon-trash"></span></a></td>
-			{% else %}
-			<td><a href="{{ e.id }}/"><span class="glyphicon glyphicon-eye-open"></span></a></td>
 			{% endif %}
 			</tr>
 		{% endfor %}
