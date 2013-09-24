@@ -13,8 +13,11 @@
 {% autopaginate object_list 10 %}
 {# TO-DO: Trocar para ~"hasPermission" #}
 <div class="btn-toolbar">
+	{# TO-DO: Trocar para ~"hasPermission" #}
 	{% if user.is_superuser %}
-	<a class="btn btn-default" href="adicionar/" >{% trans 'Add' %} {{ auto_name|lower }}</a>
+	<div class="btn-group">
+            <a class="btn btn-default" title="Adicionar" href="adicionar/">{% trans 'Add' %} {{ auto_name|lower }}</a>
+	</div>
 	{% endif %}
 
 {% if object_list %}
