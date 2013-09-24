@@ -44,13 +44,13 @@
 		{% for e in object_list %}
 			<tr>
 			{% for value in e|get_first_field_values %}
-				<td><a href="{{ e.get_absolute_url|default:e.id }}">{{ value|default:"Não disponível" }}</a></td>
+				<td><a href="{{ e.id }}/detalhes/">{{ value|default:"Não disponível" }}</a></td>
 			{% endfor %}
 			{% if user.is_superuser %}
 				<td><a href="{{ e.id }}/editar/"><span class="glyphicon glyphicon-pencil"></span></a></td>
 				<td><a href="{{ e.id }}/deletar/"><span class="glyphicon glyphicon-trash"></span></a></td>
 			{% else %}
-			<td><a href="{{ e.get_absolute_url|default:e.id }}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+			<td><a href="{{ e.id }}/detalhes/"><span class="glyphicon glyphicon-eye-open"></span></a></td>
 			{% endif %}
 			</tr>
 		{% endfor %}
