@@ -33,7 +33,6 @@
 		<tr>
 		{% sort_headers cl %}
 		{% if user.is_superuser %}
-			<th scope="col" class="unsortable"><span>Editar</span></th>
 			<th scope="col" class="unsortable"><span>Deletar</span></th>
 		{% else %}
 			<th scope="col" class="unsortable"><span>Visualizar</span></th>
@@ -47,7 +46,6 @@
 				<td><a href="{{ e.id }}/">{{ value|default:"Não disponível" }}</a></td>
 			{% endfor %}
 			{% if user.is_superuser %}
-				<td><a href="{{ e.id }}/editar/"><span class="glyphicon glyphicon-pencil"></span></a></td>
 				<td><a href="{{ e.id }}/deletar/"><span class="glyphicon glyphicon-trash"></span></a></td>
 			{% else %}
 			<td><a href="{{ e.id }}/"><span class="glyphicon glyphicon-eye-open"></span></a></td>
