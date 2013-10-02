@@ -91,6 +91,12 @@ class CrudUtilsListView(ListView):
             # Doesnt show ID field
             list_display = list_display[1:]
 
+        # Check actions to see if any are available on this changelist
+        actions = self.get_actions(request)
+        if actions:
+            # Add the action checkboxes if there are any actions available.
+            list_display = ['action_checkbox'] + list(list_display)
+
         cl = SimpleChangeList(self.request, self.model, list_display)
         context['cl'] = cl
 
