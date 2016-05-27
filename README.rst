@@ -1,7 +1,7 @@
 django-crud-utils
 ===============
 
-An extension to the Django web framework that helps the development of model/view/templates for CRUD operations.
+An extension in PT-BR (Internationalization needed - see issue #1) to the Django web framework that helps the development of model/view/templates for CRUD operations.
 
 Setup
 -----
