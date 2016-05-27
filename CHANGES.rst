@@ -1,4 +1,4 @@
-Change-log for django-sorting-bootstrap.
+Change-log for django-crud-utils.
 
 Version 0.1 (2016/27/05)
 ==========================
