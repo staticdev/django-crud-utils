@@ -1,5 +1,4 @@
 - Put pre-requisites in packaging script - pagination and sorting
 - Improve documentation
-- Translate to english
 - Make tests for deleted itens list in delete template
 - Make a way to select multiple itens for deletion (checkbox actions)
