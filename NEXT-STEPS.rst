@@ -1,4 +1,3 @@
-- Create changes file
 - Put pre-requisites in packaging script - pagination and sorting
 - Improve documentation
 - Translate to english
