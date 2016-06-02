@@ -1,3 +1,10 @@
+|pyversions|
+
+.. |pyversions| image:: https://img.shields.io/pypi/pyversions/django-sorting-bootstrap.svg
+    :target: https://pypi.python.org/pypi/django-sorting-bootstrap
+    :alt: Python versions supported
+
+
 django-crud-utils
 ===============
 
